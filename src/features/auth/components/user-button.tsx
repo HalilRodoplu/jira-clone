@@ -13,8 +13,11 @@ import {useCurrent} from "@/features/auth/api/use-current";
 
 import React from 'react';
 import {Loader, LogOut} from "lucide-react";
+import {useLogout} from "@/features/auth/api/use-logout";
 
 export const UserButton = () => {
+
+    const logoutMutation = useLogout();
 
     const {data: user, isLoading} = useCurrent();
 
@@ -60,7 +63,10 @@ export const UserButton = () => {
                     </div>
                 </div>
                 <DottedSeparator className="mb-1"/>
-                <DropdownMenuItem>
+                <DropdownMenuItem
+                    onClick={ () => logoutMutation.mutate()}
+                    className="hover:cursor-pointer text-red-400 duration-700"
+                >
                     <LogOut className="size-4 mr-2"/>
                         Log out
                 </DropdownMenuItem>

@@ -1,3 +1,5 @@
+"use client"
+
 import {z} from 'zod';
 
 import {useForm} from "react-hook-form";
@@ -164,7 +166,7 @@ export const SignUpCard = () => {
                 <p>
                     Already have an account? {" "}
                     <Link className="text-blue-700" href="/sign-in">
-                        Sign In
+                        Register
                     </Link>
                 </p>
             </CardContent>
